@@ -2,7 +2,6 @@
 
 // exitcode values to indicate issue
 // Unsafe unwraps?
-// add check IS_SUPPORTED_SYSTEM
 
 use clap::Parser;
 use std::{
@@ -51,6 +50,9 @@ fn main() -> ExitCode {
 }
 
 fn get_caller_path() -> Result<PathBuf, &'static str> {
+    if (!IS_SUPPORTED_SYSTEM) {
+        return Err("Unsupported system - Cannot find caller.");
+    }
     // .with_cwd(UpdateKind::Always)
     let sys: System = System::new_with_specifics(
         RefreshKind::nothing().with_processes(
