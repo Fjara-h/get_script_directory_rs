@@ -8,7 +8,7 @@ use std::{
     path::PathBuf,
     process::{ExitCode, id},
 };
-use sysinfo::{Pid, ProcessRefreshKind, RefreshKind, System, UpdateKind};
+use sysinfo::{IS_SUPPORTED_SYSTEM, Pid, ProcessRefreshKind, RefreshKind, System, UpdateKind};
 
 // Replace `SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )`
 
